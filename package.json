@@ -1,0 +1,28 @@
+{
+  "name": "sylvainbrunerie.xyz",
+  "version": "1.0.0",
+  "description": "Personal static website (temporary)",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NiavlysB/NiavlysB.github.io.git"
+  },
+  "keywords": [
+    "website"
+  ],
+  "author": "Sylvain Brunerie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NiavlysB/NiavlysB.github.io/issues"
+  },
+  "homepage": "https://github.com/NiavlysB/NiavlysB.github.io#readme",
+  "devDependencies": {
+    "cssnano": "^3.10.0",
+    "gulp": "^4.0.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-inject": "^4.3.1"
+  }
+}
