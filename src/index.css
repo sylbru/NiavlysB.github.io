@@ -25,6 +25,7 @@ h2 {
 
 body {
    padding: 1em;
+   text-shadow: 0 0 2em #333;
 }
 
 @media (min-width: 50em) {
