@@ -5,12 +5,12 @@ import browserSync from 'browser-sync'
 
 const server = browserSync.create()
 
-export const serve = function () {
+export const serve = () => {
    server.init({server: true})
 }
 
-export const build = function () {
-   const getContents = function (filePath, file) {
+export const build = () => {
+   const getContents = (filePath, file) => {
       return file.contents.toString('utf8')
    }
 
@@ -30,8 +30,8 @@ export const build = function () {
       .pipe(gulp.dest('./'))
 }
 
-export const watch = function () {
-   gulp.watch(['./src/*.css', './src/*.html']).on('all', function() {
+export const watch = () => {
+   gulp.watch(['./src/*.css', './src/*.html']).on('all', event => {
       build()
       server.reload()
    })
