@@ -1,20 +1,15 @@
-const gulp = require('gulp')
-const inject = require('gulp-inject')
-const cssnano = require('gulp-cssnano')
-const server = require('browser-sync').create()
+import gulp from 'gulp'
+import inject from 'gulp-inject'
+import cssnano from 'gulp-cssnano'
+import browserSync from 'browser-sync'
 
-gulp.task(build)
-gulp.task(watch)
-gulp.task(serve)
+const server = browserSync.create()
 
-gulp.task('dev', gulp.parallel(watch, serve))
-gulp.task('default', gulp.parallel(watch, serve))
-
-function serve() {
+export const serve = function () {
    server.init({server: true})
 }
 
-function build() {
+export const build = function () {
    const getContents = function (filePath, file) {
       return file.contents.toString('utf8')
    }
@@ -35,9 +30,12 @@ function build() {
       .pipe(gulp.dest('./'))
 }
 
-function watch() {
+export const watch = function () {
    gulp.watch(['./src/*.css', './src/*.html']).on('all', function() {
       build()
       server.reload()
-   });
+   })
 }
+
+export const dev = gulp.parallel(watch, serve)
+export default dev
