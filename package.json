@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/NiavlysB/NiavlysB.github.io#readme",
   "devDependencies": {
+    "browser-sync": "^2.23.6",
     "cssnano": "^3.10.0",
     "gulp": "^4.0.0",
     "gulp-cssnano": "^2.1.2",

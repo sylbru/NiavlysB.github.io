@@ -1,10 +1,20 @@
 const gulp = require('gulp')
 const inject = require('gulp-inject')
 const cssnano = require('gulp-cssnano')
+const server = require('browser-sync').create()
 
-gulp.task('build', build)
+gulp.task(build)
+gulp.task(watch)
+gulp.task(serve)
 
-function build(done) {
+gulp.task('dev', gulp.parallel(watch, serve))
+gulp.task('default', gulp.parallel(watch, serve))
+
+function serve() {
+   server.init({server: true})
+}
+
+function build() {
    const getContents = function (filePath, file) {
       return file.contents.toString('utf8')
    }
@@ -23,12 +33,11 @@ function build(done) {
          transform: getContents,
       }))
       .pipe(gulp.dest('./'))
-      
-   done()
 }
 
-gulp.task('watch', function () {
-   gulp.watch(['./src/*.css', './src/*.html']).on('change', function () {
-      build();
+function watch() {
+   gulp.watch(['./src/*.css', './src/*.html']).on('all', function() {
+      build()
+      server.reload()
    });
-})
+}

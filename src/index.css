@@ -1,5 +1,5 @@
 html {
-   background: url(bg.png) center;
+   background: url(bg.jpg) center;
    background-size: cover;
    color: #f0f0f0;
    font-family: monospace;
@@ -24,8 +24,13 @@ h2 {
 }
 
 body {
-   width: 25vw;
-   height: 25vh;
+   padding: 1em;
+}
+
+@media (min-width: 50em) {
+   body {
+      width: 25em;
+   }
 }
 
 p, li {
