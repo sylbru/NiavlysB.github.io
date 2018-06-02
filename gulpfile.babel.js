@@ -1,6 +1,7 @@
 import gulp from 'gulp'
 import inject from 'gulp-inject'
 import cssnano from 'gulp-cssnano'
+import htmlmin from 'gulp-htmlmin'
 import browserSync from 'browser-sync'
 
 const server = browserSync.create()
@@ -27,6 +28,7 @@ export const build = () => {
          removeTags: true,
          transform: getContents,
       }))
+      .pipe(htmlmin({collapseWhitespace: true}))
       .pipe(gulp.dest('./'))
 }
 
