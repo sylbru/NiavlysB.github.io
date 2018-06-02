@@ -44,3 +44,7 @@ p, li {
 .email::after {
    content: attr(data-after);
 }
+
+.arobase {
+   vertical-align: sub;
+}
