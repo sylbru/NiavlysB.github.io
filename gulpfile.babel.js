@@ -28,12 +28,24 @@ export const build = () => {
          removeTags: true,
          transform: getContents,
       }))
+      .pipe(inject(gulp.src('./src/music.svg'), {
+         starttag: '<!-- inject:svg:music -->',
+         relative: true,
+         removeTags: true,
+         transform: getContents,
+      }))
+      .pipe(inject(gulp.src('./src/code.svg'), {
+         starttag: '<!-- inject:svg:code -->',
+         relative: true,
+         removeTags: true,
+         transform: getContents,
+      }))
       .pipe(htmlmin({collapseWhitespace: true}))
       .pipe(gulp.dest('./'))
 }
 
 export const watch = () => {
-   gulp.watch(['./src/*.css', './src/*.html']).on('all', event => {
+   gulp.watch(['./src/*.css', './src/*.html', './*.svg']).on('all', event => {
       build()
       server.reload()
    })

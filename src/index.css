@@ -48,3 +48,14 @@ p, li {
 .arobase {
    vertical-align: sub;
 }
+
+.svg-container svg {
+   width: 15em;
+   height: 15em;
+   margin: 2em;
+   border: 1.5px solid #fff;
+}
+
+.svg-container svg path, .svg-container svg rect {
+   stroke: #fff !important;
+}
